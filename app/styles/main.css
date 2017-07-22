@@ -1,7 +1,5 @@
 
-/*
-* Application level Generic style 
-*/
+/** Application level Generic style */
 
 body{
 	font-family: "helvetica";
@@ -31,4 +29,17 @@ a{
 .container{
 	max-width: 1024px;
 	margin: 0 auto;
+}
+
+.flex-layout{
+	display: flex;
+}
+
+.flex-layout > div{
+	flex: 1 1 auto;
+	margin-left: 15px;
+}
+
+.flex-layout > div:first-child{
+	margin-left: 0;
 }

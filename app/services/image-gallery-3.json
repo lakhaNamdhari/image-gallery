@@ -1,0 +1,65 @@
+[
+	{
+		"isActive": false,
+		"image": {
+	    "alt": "sample 1",
+	    "src": "http://lorempixel.com/320/180",
+	    "srcset": "http://lorempixel.com/320/180 320w, http://lorempixel.com/640/360 640w, http://lorempixel.com/960/540 960w, http://lorempixel.com/1280/720 1280w",
+	    "sizes": "100vw"
+		}
+	},	
+	{
+		"isActive": false,
+		"image": {
+	    "alt": "sample 2",
+	    "src": "http://via.placeholder.com/320x180",
+	    "srcset": "http://via.placeholder.com/320x180 320w, http://via.placeholder.com/640x360 640w, http://via.placeholder.com/960x540 960w, http://via.placeholder.com/1280x720 1280w",
+	    "sizes": "100vw"
+		}
+	},
+	{
+		"isActive": false,
+		"image": {
+	    "alt": "sample 3",
+	    "src": "http://lorempixel.com/320/180",
+	    "srcset": "http://lorempixel.com/320/180 320w, http://lorempixel.com/640/360 640w, http://lorempixel.com/960/540 960w, http://lorempixel.com/1280/720 1280w",
+	    "sizes": "100vw"
+		}
+	},	
+	{
+		"isActive": false,
+		"image": {
+	    "alt": "sample 4",
+	    "src": "http://via.placeholder.com/320x180",
+	    "srcset": "http://via.placeholder.com/320x180 320w, http://via.placeholder.com/640x360 640w, http://via.placeholder.com/960x540 960w, http://via.placeholder.com/1280x720 1280w",
+	    "sizes": "100vw"
+		}
+	},
+	{
+		"isActive": false,
+		"image": {
+	    "alt": "sample 5",
+	    "src": "http://lorempixel.com/320/180",
+	    "srcset": "http://lorempixel.com/320/180 320w, http://lorempixel.com/640/360 640w, http://lorempixel.com/960/540 960w, http://lorempixel.com/1280/720 1280w",
+	    "sizes": "100vw"
+		}
+	},
+	{
+		"isActive": true,
+		"image": {
+	    "alt": "sample 6",
+	    "src": "http://via.placeholder.com/320x180",
+	    "srcset": "http://via.placeholder.com/320x180 320w, http://via.placeholder.com/640x360 640w, http://via.placeholder.com/960x540 960w, http://via.placeholder.com/1280x720 1280w",
+	    "sizes": "100vw"
+		}
+	},
+	{
+		"isActive": false,
+		"image": {
+	    "alt": "sample 7",
+	    "src": "http://lorempixel.com/320/180",
+	    "srcset": "http://lorempixel.com/320/180 320w, http://lorempixel.com/640/360 640w, http://lorempixel.com/960/540 960w, http://lorempixel.com/1280/720 1280w",
+	    "sizes": "100vw"
+		}
+	}
+]

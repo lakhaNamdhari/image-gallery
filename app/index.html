@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ImageGallary sample page</title>
+    <title>ImageGallery sample page</title>
   </head>
   <body>
   	<div class="container">
-  		<div class="image-gallery" data-image-gallery='{"url": "services/image-gallery.json"}'></div>
-  	</div>
+	  	<h1>This is the Sample page to show usage of ImageGallery component</h1>
+	  	<h2>In Three column grid</h2>
+	  	<div class="flex-layout">
+	    	<div class="image-gallery" data-image-gallery='{"url": "services/image-gallery.json"}'></div>      	
+	    	<div class="image-gallery" data-image-gallery='{"url": "services/image-gallery-1.json"}'></div>      	
+	    	<div class="image-gallery" data-image-gallery='{"url": "services/image-gallery-2.json"}'></div>  	
+	    </div>  		  	
+	    <h2>In Two column grid</h2>
+	  	<div class="flex-layout">
+	    	<div class="image-gallery" data-image-gallery='{"url": "services/image-gallery-3.json"}'></div>      	
+	    	<div class="image-gallery" data-image-gallery='{"url": "services/image-gallery-2.json"}'></div> 	
+	    </div>  		  	
+	    <h2>In One column grid</h2>
+	  	<div class="flex-layout">
+	    	<div class="image-gallery" data-image-gallery='{"url": "services/image-gallery-2.json"}'></div>      	  	
+	    </div>  	
+	  </div>
     <script src="../index.js"></script>
   </body>
 </html>

@@ -5,6 +5,10 @@ module.exports = {
 		filename: 'index.js',
     path: __dirname
 	},
+  devServer: {
+    inline: true,
+    port: 9123
+  },
 	module: {
 		loaders: [
       {
