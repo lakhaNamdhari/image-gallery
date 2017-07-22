@@ -1,0 +1,54 @@
+
+/* Styles for ImageGallery componet*/
+
+.image-gallery{
+	overflow-x: hidden;
+	position: relative;
+}
+
+.image-gallery > ul li{
+	display: none;
+	position: absolute;
+}
+
+.image-gallery > ul li.active, 
+.image-gallery > ul li.left, 
+.image-gallery > ul li.right{
+	display: block;
+	transition: all 0.6s;
+}
+
+.image-gallery > ul li.left{
+	transform: translate3d(-100%, 0, 0);
+}
+
+.image-gallery > ul li.right{
+	transform: translate3d(100%, 0, 0);
+}
+
+.image-gallery > a{
+	display: inline-block;
+	position: absolute;
+  top: calc(50% - 45px);
+  font-size: 26px;
+  padding: 15px;
+  color: #66cdaa;
+  background: #dddddd;
+  z-index: 1;
+}
+
+.image-gallery > .prev{
+	left: 0;
+}
+
+.image-gallery > .next{
+	right: 0;
+}
+
+/* Ensuring 16:9 aspect ratio for Carousel and styling indicators */
+.image-indicator{
+	margin-top: 56%;
+	padding-top: 5px;
+	text-align: center;
+	color: #999;
+}
