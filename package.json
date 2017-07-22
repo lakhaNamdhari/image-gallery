@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --hot",
-    "test": "webpack-dev-server 'mocha-loader!./test/components/imageGallary.js' --hot --inline --output-filename test.js"
+    "test": "webpack-dev-server 'mocha-loader!./test/components/imageGallery.js' --hot --inline --output-filename test.js"
   },
   "author": "Lakha Singh <polizic@yahoo.co.in>",
   "license": "ISC",

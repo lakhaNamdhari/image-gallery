@@ -6,7 +6,7 @@
 */
 
 import bootstrap from '../../scripts/bootstrap';
-import ImageGalleryStyles from './ImageGallery.css';
+import ImageGalleryStyles from './imageGallery.css';
 
 class ImageGallery{
 	constructor(config){
