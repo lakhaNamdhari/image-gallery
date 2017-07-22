@@ -6,10 +6,13 @@
 */
 
 import bootstrap from '../../scripts/bootstrap';
+import SwipeEvents from '../../scripts/swipeEvents.js';
 import ImageGalleryStyles from './imageGallery.css';
 
 class ImageGallery{
 	constructor(config){
+		var swipeEvents;
+
 		this.config = config || {};
 		if (this.config.url === undefined){
 			throw('ImageGallery: URL is required to create image gallery.');
@@ -20,6 +23,8 @@ class ImageGallery{
 			right: 'right'
 		}
 		this.transitionDuration = this.config.transitionDuration || 600;
+		swipeEvents = new SwipeEvents(this.config.el);
+		swipeEvents.initialize();
 		this.browserPrefixes = ["webkit", "moz", "MS", "o", ""];
 		this.istransitionInProgress = false;
 		this.minIndex = 0;
@@ -39,6 +44,7 @@ class ImageGallery{
 	// Bind all events for this component
 	bindEvents(){
 		this.config.el.addEventListener('click', this.updateImage);
+		this.config.el.addEventListener('swipe', this.updateImage);
 		this.browserPrefixes.forEach((prefix, index) => {
 			var eventType = 'TransitionEnd';
 			
