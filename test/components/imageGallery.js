@@ -59,15 +59,58 @@ describe('ImageGallery component', function(){
 	});	
 
 	it('should show next image when next putton is clicked', function(){
-		expect(false).to.equal(true);
+		var nextButton;
+		var clickEvent = new MouseEvent('click', {
+			bubbles: true,
+			cancelable: true
+		});
+
+		imageGallery.initialize();
+		nextButton = el.querySelector('.next');
+		// Validate initial index
+		expect(imageGallery.currIndex).to.equal(0);
+		//emulate button click
+		nextButton.dispatchEvent(clickEvent);
+		// fast forward animations
+		imageGallery.updateGalleryState();
+		expect(imageGallery.currIndex).to.equal(1);
 	});
 
 	it('should show previous image when prev putton is clicked', function(){
-		expect(false).to.equal(true);
+		var prevButton;
+		var clickEven = new MouseEvent('click', {
+			bubbles: true,
+			cancelable: true
+		});
+
+		imageGallery.initialize();
+		prevButton = el.querySelector('.prev');console.log(prevButton);
+		// Validate initial index
+		expect(imageGallery.currIndex).to.equal(0);
+		//emulate button click
+		prevButton.dispatchEvent(clickEven);
+		// fast forward animations
+		imageGallery.updateGalleryState();
+		expect(imageGallery.currIndex).to.equal(imageGallery.imageListData.length - 1);
 	});
 
 	it('should update indicator value when image in gallery is updated', function(){
-		expect(false).to.equal(true);
+		var prevButton, imageIndicator;
+		var clickEven = new MouseEvent('click', {
+			bubbles: true,
+			cancelable: true
+		});
+
+		imageGallery.initialize();
+		imageIndicator = el.querySelector('.image-indicator span:first-child');
+		prevButton = el.querySelector('.prev');console.log(prevButton);
+		// Validate initial indicator value
+		expect(parseInt(imageIndicator.innerText)).to.equal(1);
+		//emulate button click
+		prevButton.dispatchEvent(clickEven);
+		// fast forward animations
+		imageGallery.updateGalleryState();
+		expect(parseInt(imageIndicator.innerText)).to.equal(imageGallery.imageListData.length);
 	});
 
 	afterEach(function(){
