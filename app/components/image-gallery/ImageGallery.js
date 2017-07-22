@@ -19,15 +19,34 @@ class ImageGallery{
 			left: 'left',
 			right: 'right'
 		}
+		this.transitionDuration = this.config.transitionDuration || 600;
+		this.browserPrefixes = ["webkit", "moz", "MS", "o", ""];
+		this.istransitionInProgress = false;
 		this.minIndex = 0;
 
 		// exclusively bind scope to protect it during execution.
 		this.render = this.render.bind(this)
+		this.updateImage = this.updateImage.bind(this);
+		this.updateGalleryState = this.updateGalleryState.bind(this);
 	}
 
 	// Inits the execution sequence
 	initialize(){
+		this.bindEvents();
 		this.fetchData(this.render);
+	}
+
+	// Bind all events for this component
+	bindEvents(){
+		this.config.el.addEventListener('click', this.updateImage);
+		this.browserPrefixes.forEach((prefix, index) => {
+			var eventType = 'TransitionEnd';
+			
+			if(!prefix.length){
+				eventType = eventType.toLowerCase();
+			}
+			this.config.el.addEventListener(prefix+eventType, this.updateGalleryState);
+		});
 	}
 
 	// Fetches data from service and executes callback
@@ -47,6 +66,55 @@ class ImageGallery{
 		});
 		ajax.open("GET", this.config.url);
 		ajax.send();
+	}
+
+	// Updates image in the gallery when next or prev buttons is clicked
+	updateImage(e){
+		var dx;
+		
+		e.preventDefault();
+		// 1. This ensures that we dont update image in gallery when a transition is in-progress
+		// 2. It also ensures that if transitionend event wasnt triggered we update the state manually
+		if (this.istransitionInProgress){
+			if (Date.now() - this.timeStart > this.transitionDuration){
+				this.updateGalleryState();
+			}else{
+				return false;
+			}
+		}
+
+		if (/next|prev/.test(e.target.className) || e.type === 'swipe'){
+			this.nxtIndex = this.currIndex;
+			if (e.type === 'swipe'){
+				dx = /left/.test(e.detail) ? 1 : -1;
+			}else{
+				dx = /next/.test(e.target.className) ? 1 : -1;
+			}
+			this.nxtIndex += dx;
+
+			if (this.nxtIndex < this.minIndex){
+				this.nxtIndex = this.maxIndex;
+			}else if (this.nxtIndex > this.maxIndex){
+				this.nxtIndex = this.minIndex;
+			}
+
+			this.imageListEls[this.currIndex].className = (dx === 1) ? this.cssClass.left : this.cssClass.right;
+			this.imageListEls[this.nxtIndex].className = (dx === 1) ? this.cssClass.right : this.cssClass.left;		
+			// To trigger transition, there needs to be some latency between two states 
+			setTimeout(() => this.imageListEls[this.nxtIndex].className = this.cssClass.active, 10);
+			this.istransitionInProgress = true;
+			this.timeStart = Date.now();
+		}
+	}
+
+	// Updates component state after transition finishes
+	updateGalleryState(e){
+		if ((!e || e.target === this.imageListEls[this.nxtIndex]) && this.istransitionInProgress){
+			this.imageListEls[this.currIndex].className = '';
+			this.currIndex = this.nxtIndex;
+			this.indicator.innerText = this.currIndex + 1;
+			this.istransitionInProgress = false;
+		}
 	}
 
 	// cache DOM references
