@@ -2,3 +2,33 @@
 /*
 * Application level Generic style 
 */
+
+body{
+	font-family: "helvetica";
+	font-size: 14px;
+}
+
+h1{
+	margin-bottom: 60px;
+}
+
+ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+img{
+	max-width: 100%;
+}
+
+a{
+	text-decoration: none;
+}
+
+/* Classes needed for sample page */
+
+.container{
+	max-width: 1024px;
+	margin: 0 auto;
+}
