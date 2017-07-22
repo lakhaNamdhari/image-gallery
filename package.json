@@ -1,0 +1,24 @@
+{
+  "name": "image-gallery",
+  "version": "1.0.0",
+  "description": "The image gallery component can display list of images with capability to move forward and backward. It also displays the index of active image.",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --hot"
+  },
+  "author": "Lakha Singh <polizic@yahoo.co.in>",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-es2015": "^6.24.1",
+    "chai": "^4.1.0",
+    "css-loader": "^0.28.4",
+    "mocha": "^3.4.2",
+    "mocha-loader": "^1.1.1",
+    "sinon": "^2.3.8",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.3.0",
+    "webpack-dev-server": "^2.5.1"
+  }
+}
